@@ -1,0 +1,27 @@
+{
+    "name": "foo/foo-basic-example",
+    "description": "foo/foo-basic-example",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.7.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Foo\\FooBasicExample",
+        "label": {
+            "de-DE": "Skeleton plugin",
+            "en-GB": "Skeleton plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Foo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Foo\\Tests\\": "tests/"
+        }
+    }
+}
