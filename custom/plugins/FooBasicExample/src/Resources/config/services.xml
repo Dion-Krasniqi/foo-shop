@@ -7,6 +7,15 @@
     <services>
         <service id="Foo\Command\ExampleCommand" >
             <tag name="console.command" />
+            <argument type="service" id="cache.system" />
+        </service>
+        <service id="Foo\Service\ScheduledTask\ExampleTask">
+            <tag name="shopware.scheduled.task" />
+        </service>
+        <service id="Foo\Service\ScheduledTask\ExampleTaskHandler">
+            <argument type="service" id="scheduled_task.repository" />
+            <argument type="service" id="logger" />
+            <tag name="message.message_handler" />
         </service>
 
     </services>
