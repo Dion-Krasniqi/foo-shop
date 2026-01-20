@@ -14,6 +14,7 @@ class FooBasicExample extends Plugin
     public function install(InstallContext $installContext): void
     {
         // Do stuff such as creating a new payment method
+        $installContext->getCurrentPluginVersion();
     }
 
     public function uninstall(UninstallContext $uninstallContext): void
