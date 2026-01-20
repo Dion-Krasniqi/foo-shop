@@ -2,7 +2,12 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
-
+    <card>
+        <title>Read</title>
+        <input-field>
+            <name>example</name>
+        </input-field>
+    </card>
     <card>
         <title>Minimal configuration</title>
 
@@ -11,6 +16,33 @@
             <label>Test field with default value</label>
             <defaultValue>test</defaultValue>
         </input-field>
+    </card>
+    <card>
+        <title>Thy Second Configuration</title>
+        <input-field type="textarea">
+            <name>nameField</name>
+            <label>Field of the name</label>
+            <placeholder>test</placeholder>
+        </input-field>
+        <input-field type="single-select">
+            <name>theSelect</name>
+            <options>
+                <option>
+                    <id>fakeId1</id>
+                    <name>Label_1</name>
+                </option>
+                <option>
+                    <id>fakeId2</id>
+                    <name>Label_2</name>
+                </option>
+            </options>
+
+        </input-field>
+        <component name="sw-entity-single-select">
+            <name>exampleProduct</name>
+            <entity>product</entity>
+            <label>Choose a product for the plugin configuration</label>
+        </component>
     </card>
 
 </config>

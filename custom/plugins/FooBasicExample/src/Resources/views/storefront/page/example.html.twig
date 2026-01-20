@@ -1,7 +1,16 @@
 {% sw_extends '@Storefront/storefront/base.html.twig' %}
 
 {% block base_content %}
-    <h1>Example controller!{{ example }}</h1>
+    <ul>
+        {%  for prod in products %}
+        <li> {{ prod.name }}</li>
+        {% endfor %}
+    </ul>
 
+    {% set exampleValue = config('FooBasicExample.config.example') %}
+
+    {% if exampleValue %}
+        <h1>{{ exampleValue }}</h1>
+    {% endif %}
 
 {% endblock %}
