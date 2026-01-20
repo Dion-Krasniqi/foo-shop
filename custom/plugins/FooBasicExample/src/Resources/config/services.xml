@@ -7,7 +7,8 @@
     <services>
         <service id="Foo\Command\ExampleCommand" >
             <tag name="console.command" />
-            <argument type="service" id="cache.system" />
+            <argument type="service" id="kernel" />
+            <argument type="service" id="product.repository" />
         </service>
         <service id="Foo\Service\ScheduledTask\ExampleTask">
             <tag name="shopware.scheduled.task" />
@@ -16,6 +17,11 @@
             <argument type="service" id="scheduled_task.repository" />
             <argument type="service" id="logger" />
             <tag name="message.message_handler" />
+        </service>
+        <service id="Foo\Storefront\Controller\ExampleController" public="true">
+            <call method="setContainer">
+            <argument type="service" id="service_container" />
+            </call>
         </service>
 
     </services>
