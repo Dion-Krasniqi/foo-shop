@@ -25,7 +25,7 @@ class MySubscriber implements EventSubscriberInterface
     {
         $salesChannelId = null;
         $exampleConfig = $this->systemConfigService->get('FooBasicExample.config.example', $salesChannelId);
-        echo $exampleConfig;
+
     }
 }
 

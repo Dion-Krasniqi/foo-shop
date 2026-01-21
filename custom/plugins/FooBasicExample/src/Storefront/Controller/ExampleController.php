@@ -2,6 +2,7 @@
 
 namespace Foo\Storefront\Controller;
 
+use Foo\Exceptions\ExampleException;
 use Foo\FooBasicExample;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -38,5 +39,13 @@ class ExampleController extends StorefrontController
         return $this->renderStorefront('@FooBasicExample/storefront/page/example.html.twig',
             [ 'products' => $products ]);
     }
+
+    #[Route(path: '/unknown', name:'frontend.unknwon.example', methods: ['GET'])]
+    public function showError(Request $request, Context $context): Response
+    {
+        throw new ExampleException('Something went wrong!');
+    }
+
+
 
 }
