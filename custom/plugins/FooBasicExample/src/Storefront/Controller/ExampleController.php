@@ -40,7 +40,7 @@ class ExampleController extends StorefrontController
             [ 'products' => $products ]);
     }
 
-    #[Route(path: '/unknown', name:'frontend.unknwon.example', methods: ['GET'])]
+    #[Route(path: '/unknown', name:'frontend.unknown.example', methods: ['GET'])]
     public function showError(Request $request, Context $context): Response
     {
         throw new ExampleException('Something went wrong!');
