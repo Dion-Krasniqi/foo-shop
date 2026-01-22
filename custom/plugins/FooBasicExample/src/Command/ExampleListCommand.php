@@ -12,7 +12,7 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name:'foo-command:list-example_entity')]
+#[AsCommand(name:'foo-commands:list-example_entity')]
 class ExampleListCommand extends Command
 {
     private $exampleRepository;

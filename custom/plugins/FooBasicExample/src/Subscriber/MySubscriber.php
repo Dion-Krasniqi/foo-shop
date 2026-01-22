@@ -2,7 +2,11 @@
 
 namespace Foo\Subscriber;
 
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEvent;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Plugin\PluginEvents;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Shopware\Core\Content\Product\ProductEvents;
@@ -10,6 +14,7 @@ use Shopware\Core\Content\Product\ProductEvents;
 class MySubscriber implements EventSubscriberInterface
 {
     private SystemConfigService $systemConfigService;
+
     public function __construct(SystemConfigService $systemConfigService)
     {
         $this->systemConfigService = $systemConfigService;
@@ -25,6 +30,8 @@ class MySubscriber implements EventSubscriberInterface
     {
         $salesChannelId = null;
         $exampleConfig = $this->systemConfigService->get('FooBasicExample.config.example', $salesChannelId);
+
+
 
     }
 }

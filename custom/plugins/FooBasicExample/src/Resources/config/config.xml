@@ -9,6 +9,14 @@
         </input-field>
     </card>
     <card>
+        <title>Stock for all products</title>
+        <input-field type="int">
+            <name>stock</name>
+            <label>Stock amount to apply to all products</label>
+            <defaultValue>0</defaultValue>
+        </input-field>
+    </card>
+    <card>
         <title>Minimal configuration</title>
 
         <input-field type="text">
