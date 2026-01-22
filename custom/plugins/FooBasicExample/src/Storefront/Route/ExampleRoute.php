@@ -42,6 +42,6 @@ class ExampleRoute
             return new NoContentResponse();
         }
         $exampleEntity = $searchResults->first();
-        return new ExampleEntityResponse($exampleEntity)
+        return new ExampleEntityResponse($exampleEntity);
     }
 }
