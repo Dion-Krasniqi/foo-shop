@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
-/*
+
 namespace Foo\Core\Content\Example;
-use \Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\CreatedAtField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
@@ -18,23 +18,21 @@ class ExampleDefinition extends EntityDefinition
     {
         return self::ENTITY_NAME;
     }
-    public function getEntityClass(): string
-    {
-        return ExampleEntity::class;
-    }
-    public function getCollectionClass(): string
-    {
-        return ExampleCollection::class;
-    }
 
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([
             (new IdField('id','id'))->addFlags(new PrimaryKey(), new Required()),
-            (new StringField('name'))->addFlags(new Required()),
-            new createdAtField(),
-            new updatedAtField(),
+            (new StringField('name', 'name'))->addFlags(new Required()),
+            new CreatedAtField(),
+            new UpdatedAtField(),
         ]);
     }
+
+    public function getEntityClass(): string
+    {
+        return ExampleEntity::class;
+    }
 }
-*/
+
+

@@ -2,20 +2,22 @@
 
 namespace Foo\Storefront\Route\Response;
 
-use Shopware\Core\Framework\DataAbstractionLayer\Entity;
+use Foo\Core\Content\Example\ExampleEntity;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\Struct\Struct;
 use Shopware\Core\System\SalesChannel\StoreApiResponse;
 
 class ExampleEntityResponse extends StoreApiResponse
 {
-    /** @var Entity */
-    protected $object;
-
-    /** @return Entity */
-
-    public function getExample(): Entity
+    /** @var ExampleEntity */
+    protected $entity;
+    public function __construct(EntityRepository $entity)
     {
-        return $this->object;
+        $this->entity = $entity;
+    }
+
+    public function getExample(): ExampleEntity
+    {
+        return $this->entity;
     }
 }
-
-// Make a custom entity called ExampleEntity
