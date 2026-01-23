@@ -4,12 +4,17 @@ namespace Foo\Storefront\Controller;
 
 use Foo\Exceptions\ExampleException;
 use Foo\FooBasicExample;
+use Shopware\Core\Checkout\Cart\Cart;
+use Shopware\Core\Checkout\Cart\LineItem\LineItem;
+use Shopware\Core\Checkout\Cart\LineItemFactoryRegistry;
+use Shopware\Core\Checkout\Cart\SalesChannel\CartService;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NotFilter;
 use Shopware\Core\PlatformRequest;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Framework\Routing\StorefrontRouteScope;
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,9 +25,14 @@ use Symfony\Component\Routing\Attribute\Route;
 class ExampleController extends StorefrontController
 {
     private $productRepository;
-    public function __construct(EntityRepository $productRepository)
+
+    private LineItemFactoryRegistry $factory;
+    private CartService $cartService;
+    public function __construct(EntityRepository $productRepository, LineItemFactoryRegistry $factory, CartService $cartService)
     {
         $this->productRepository = $productRepository;
+        $this->factory = $factory;
+        $this->cartService = $cartService;
 
     }
 
@@ -44,6 +54,19 @@ class ExampleController extends StorefrontController
     public function showError(Request $request, Context $context): Response
     {
         throw new ExampleException('Something went wrong!');
+    }
+
+    #[Route(path:'/cartAdd', name:'frontend.cartExample', methods: ['GET'])]
+    public function addToCart(Cart $cart, SalesChannelContext $context): Response
+    {
+        $lineItem = $this->factory->create([
+            'type' => LineItem::PRODUCT_LINE_ITEM_TYPE,
+            'referencedId' => '019bdaef26397e0488e773010e30aa69',
+            'quantity' => 5,
+            'payload' => ['key' => 'value']
+        ], $context);
+        $this->cartService->add($cart, $lineItem, $context);
+        return $this->renderStorefront('@Storefront/storefront/base.html.twig');
     }
 
 

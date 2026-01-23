@@ -46,6 +46,8 @@
 
         <service id="Foo\Storefront\Controller\ExampleController" public="true">
             <argument type="service" id="product.repository" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\LineItemFactoryRegistry" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService" />
             <call method="setContainer">
                 <argument type="service" id="service_container" />
 

@@ -9,6 +9,13 @@
         </input-field>
     </card>
     <card>
+        <title>Apply this static stock</title>
+        <title lang="de-DE">Wenden Sie diesen statischen Bestand an</title>
+        <input-field type="bool">
+            <name>applyStock</name>
+            <label>Choose if the number below should be applied</label>
+            <defaultValue>False</defaultValue>
+        </input-field>
         <title>Stock for all products</title>
         <input-field type="int">
             <name>stock</name>

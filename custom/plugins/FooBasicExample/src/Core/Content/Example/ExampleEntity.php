@@ -2,12 +2,8 @@
 
 namespace Foo\Core\Content\Example;
 
-use Shopware\Core\Framework\DataAbstractionLayer\Attribute\Field;
-use Shopware\Core\Framework\DataAbstractionLayer\Attribute\FieldType;
-use Shopware\Core\Framework\DataAbstractionLayer\Attribute\PrimaryKey;
-use Shopware\Core\Framework\DataAbstractionLayer\Attribute\Required;
+
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityCustomFieldsTrait;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
 
 

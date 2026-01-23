@@ -1,0 +1,7 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+{% block layout_footer_navigation_columns %}
+    {% set stockBool = config('FooBasicExample.config.applyStock') %}
+    {% if stockBool %}
+        <p>The value set in the plugin config has been approved to be applied(that's done by the cli command)</p>
+    {% endif %}
+{% endblock %}

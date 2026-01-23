@@ -33,6 +33,10 @@ class ExamplePushStockCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
+        $stockApproval = $this->systemConfigService->get('FooBasicExample.config.applyStock', null);
+        if (!$stockApproval) {
+            return Command::SUCCESS;
+        }
         $stockConfig = $this->systemConfigService->get('FooBasicExample.config.stock', null);
         if (is_string($stockConfig)){
             $output->writeln($stockConfig);
