@@ -53,9 +53,13 @@
 
             </call>
         </service>
+        <service id="Foo\Core\Checkout\Cart\DiscountCollector">
+            <tag name="shopware.cart.processor" priority="4500" />
+            <argument type="service" id="Shopware\Core\Checkout\Cart\Price\PercentagePriceCalculator" />
+        </service>
+
         <service id="Foo\Storefront\Route\Response\ExampleResponse" >
             <argument type="service" id="example.repository" />
-
         </service>
 
         <service id="Foo\Subscriber\MySubscriber">
